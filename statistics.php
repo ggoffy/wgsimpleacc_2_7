@@ -54,7 +54,7 @@ $dateTo = Request::getInt('dateTo', \time());
 if (Request::hasVar('filterTo')) {
     $dateTo = \DateTime::createFromFormat(\_SHORTDATESTRING, Request::getString('filterTo'))->getTimestamp();
 }
-$showOffline = Request::getInt('showoffline', 0);
+$showOffline = Request::getInt('showoffline');
 $GLOBALS['xoopsTpl']->assign('showoffline', $showOffline);
 
 $keywords = [];
