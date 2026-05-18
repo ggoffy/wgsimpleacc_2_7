@@ -163,11 +163,11 @@ switch ($op) {
         $accWeight = Request::getInt('acc_weight');
         if ($accPid > 0) {
             $accParentObj = $accountsHandler->get($accPid);
+            if (!\is_object($accParentObj)) {
+                \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $level = $accParentObj->getVar('acc_level') + 1;
             if (9999 === $accWeight) {
-                if (!\is_object($accParentObj)) {
-                    \redirect_header('accounts.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
-                }
                 $accWeight = $accParentObj->getVar('acc_weight');
             }
         }

@@ -211,7 +211,6 @@ switch ($op) {
         if (!$permissionsHandler->getPermClientsEdit($clientsObj->getVar('cli_submitter'))) {
             \redirect_header('clients.php?op=list', 3, \_NOPERM);
         }
-        $clientsObj = $clientsHandler->get($cliId);
         $cliName = $clientsObj->getVar('cli_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {

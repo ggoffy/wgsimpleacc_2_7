@@ -172,7 +172,6 @@ switch ($op) {
             \redirect_header('assets.php?op=list', 3, \_NOPERM);
         }
         // Get Form
-        $assetsObj = $assetsHandler->get($asId);
         $form = $assetsObj->getFormAssets();
         $GLOBALS['xoopsTpl']->assign('form', $form->render());
         // Breadcrumbs

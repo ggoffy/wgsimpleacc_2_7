@@ -257,7 +257,6 @@ switch ($op) {
             \redirect_header('allocations.php?op=list', 3, \_MA_WGSIMPLEACC_ALLOCATION_ERR_DELETE2);
         }
         unset($crAllocations);
-        $allocationsObj = $allocationsHandler->get($allId);
         $allName = $allocationsObj->getVar('all_name');
         if (isset($_REQUEST['ok']) && 1 == $_REQUEST['ok']) {
             if (!$GLOBALS['xoopsSecurity']->check()) {
