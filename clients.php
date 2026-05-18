@@ -128,6 +128,9 @@ switch ($op) {
         }
         if ($cliId > 0) {
             $clientsObj = $clientsHandler->get($cliId);
+            if (!\is_object($clientsObj)) {
+                \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
         } else {
             $clientsObj = $clientsHandler->create();
         }
@@ -177,8 +180,11 @@ switch ($op) {
         if (0 == $cliId) {
             \redirect_header('clients.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Get Form
+        // Get object
         $clientsObj = $clientsHandler->get($cliId);
+        if (!\is_object($clientsObj)) {
+            \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         // Check permissions
         if (!$permissionsHandler->getPermClientsEdit($clientsObj->getVar('cli_submitter'))) {
             \redirect_header('clients.php?op=list', 3, \_NOPERM);
@@ -196,8 +202,11 @@ switch ($op) {
         if (0 == $cliId) {
             \redirect_header('clients.php?op=list', 3, \_MA_WGSIMPLEACC_INVALID_PARAM);
         }
-        // Get Form
+        // Get object
         $clientsObj = $clientsHandler->get($cliId);
+        if (!\is_object($clientsObj)) {
+            \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+        }
         // Check permissions
         if (!$permissionsHandler->getPermClientsEdit($clientsObj->getVar('cli_submitter'))) {
             \redirect_header('clients.php?op=list', 3, \_NOPERM);
@@ -229,6 +238,9 @@ switch ($op) {
     case 'change_yn':
         if ($cliId > 0) {
             $clientsObj = $clientsHandler->get($cliId);
+            if (!\is_object($clientsObj)) {
+                \redirect_header('clients.php?op=list', 2, \_MA_WGSIMPLEACC_INVALID_PARAM);
+            }
             $clientsObj->setVar(Request::getString('field'), Request::getInt('value'));
             // Insert Data
             if ($clientsHandler->insert($clientsObj, true)) {
