@@ -22,7 +22,7 @@ use Xmf\Request;
 use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\Constants;
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 
 // Template Index
 $templateMain = 'wgsimpleacc_admin_permissions.tpl';
@@ -96,4 +96,4 @@ if (true !== $permFound) {
     \redirect_header('permissions.php', 3, \_AM_WGSIMPLEACC_NO_PERMISSIONS_SET);
     exit();
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

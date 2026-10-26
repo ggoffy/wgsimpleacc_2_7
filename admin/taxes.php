@@ -25,7 +25,7 @@ use XoopsModules\Wgsimpleacc\{
     Common
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request tax_id
@@ -139,4 +139,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

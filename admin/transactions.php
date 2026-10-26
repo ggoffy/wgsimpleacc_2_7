@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request tra_id
@@ -126,7 +126,7 @@ switch ($op) {
         $transactionsObj->setVar('tra_submitter', Request::getInt('tra_submitter'));
         // Insert Data
         if ($transactionsHandler->insert($transactionsObj)) {
-            \redirect_header('transactions.php?op=list&amp;start=' . $start . '&amp;limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
+            \redirect_header('transactions.php?op=list&start=' . $start . '&limit=' . $limit, 2, \_MD_WGSIMPLEACC_FORM_OK);
         }
         // Get Form
         $GLOBALS['xoopsTpl']->assign('error', $transactionsObj->getHtmlErrors());
@@ -170,4 +170,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

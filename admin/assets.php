@@ -26,7 +26,7 @@ use XoopsModules\Wgsimpleacc\{
     Utility
 };
 
-require __DIR__ . '/header.php';
+require_once __DIR__ . '/header.php';
 // It recovered the value of argument op in URL$
 $op = Request::getCmd('op', 'list');
 // Request as_id
@@ -159,4 +159,4 @@ switch ($op) {
         }
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

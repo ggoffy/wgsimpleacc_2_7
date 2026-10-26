@@ -23,7 +23,7 @@ use Xmf\Module\Admin;
 use Xmf\Request;
 use XoopsModules\Wgsimpleacc\Common\ModuleFeedback;
 
-include __DIR__ . '/header.php';
+include_once __DIR__ . '/header.php';
 
 $adminObject = Admin::getInstance();
 
@@ -96,4 +96,4 @@ switch ($op) {
 
         break;
 }
-require __DIR__ . '/footer.php';
+require_once __DIR__ . '/footer.php';

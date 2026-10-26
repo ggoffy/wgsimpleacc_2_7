@@ -26,6 +26,8 @@ namespace XoopsModules\Wgsimpleacc;
  * @since        
  */
 
+defined('XOOPS_ROOT_PATH') || exit('Restricted access');
+
 use Xmf\Request;
 use XoopsModules\Wgsimpleacc;
 use XoopsModules\Wgsimpleacc\{Helper, Constants, Form\FormInline};
