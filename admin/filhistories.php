@@ -39,7 +39,7 @@ switch ($op) {
         $start = Request::getInt('start');
         $limit = Request::getInt('limit', $helper->getConfig('adminpager'));
         $templateMain = 'wgsimpleacc_admin_filhistories.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('filhistories.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('filhistories.php'));
         $filhistoriesCount = $filhistoriesHandler->getCountFilhistories();
         $filhistoriesAll = $filhistoriesHandler->getAllFilhistories($start, $limit);
         $GLOBALS['xoopsTpl']->assign('filhistories_count', $filhistoriesCount);
@@ -64,7 +64,7 @@ switch ($op) {
         break;
     case 'delete':
         $templateMain = 'wgsimpleacc_admin_filhistories.tpl';
-        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->displayNavigation('filhistories.php'));
+        $GLOBALS['xoopsTpl']->assign('navigation', $adminObject->renderNavigation('filhistories.php'));
         $filhistoriesObj = $filhistoriesHandler->get($histId);
         $filName = $filhistoriesObj->getVar('fil_name');
         if (1 == Request::getInt('ok')) {
